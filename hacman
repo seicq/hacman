@@ -2,11 +2,11 @@
 
 # Define the menu options
 OPTIONS=(
-  "1" "Install Packages"
-  "2" "Remove Packages"
-  "3" "Update Packages"
-  "4" "Check for Updates"
-  "5" "Search Packages"
+  "1." "Install Packages"
+  "2." "Remove Packages"
+  "3." "Update Packages"
+  "4." "Check for Updates"
+  "5." "Search Packages"
   "~" "Exit"
 )
 
@@ -14,8 +14,17 @@ OPTIONS=(
 install_packages() {
   packages=$(whiptail --inputbox "Enter the packages to install (separated by spaces):" 10 60 --title "Install Packages" 3>&1 1>&2 2>&3)
   if [ $? -eq 0 ]; then
-    sudo pacman -Sy --noconfirm $packages
-    whiptail --msgbox "Packages installed successfully!" 10 60 --title "Install Packages"
+    for package in $packages; do
+      if sudo pacman -Ssq "^$package$" >/dev/null; then
+        sudo pacman -S --noconfirm $package
+        whiptail --msgbox "Package '$package' installed successfully!" 10 60 --title "Install Packages"
+      elif yay -Ssq "^$package$" >/dev/null; then
+        yay -S --noconfirm $package
+        whiptail --msgbox "Package '$package' installed successfully from AUR!" 10 60 --title "Install Packages"
+      else
+        whiptail --msgbox "Target not found: $package" 10 60 --title "Install Packages"
+      fi
+    done
   fi
 }
 
@@ -48,32 +57,36 @@ check_updates() {
 search_packages() {
   query=$(whiptail --inputbox "Enter the package name or keyword to search:" 10 60 --title "Search Packages" 3>&1 1>&2 2>&3)
   if [ $? -eq 0 ]; then
-    results=$(sudo pacman -Ss $query)
-    if [ -z "$results" ]; then
-      whiptail --msgbox "No packages found!" 10 60 --title "Search Packages"
+    if sudo pacman -Ssq "$query" >/dev/null || yay -Ssq "$query" >/dev/null; then
+      results=$(sudo pacman -Ss "$query" | awk '!/Checking for conflicting packages/')
+      if [ -z "$results" ]; then
+        whiptail --msgbox "No packages found!" 10 60 --title "Search Packages"
+      else
+        whiptail --msgbox "Search results:\n\n$results" 20 80 --title "Search Packages"
+      fi
     else
-	    whiptail --msgbox --scrolltext "Search results:\n\n$results" 20 80 --title "Search Packages (Arrow buttons to scroll)"
+      whiptail --msgbox "Target not found: $query" 10 60 --title "Search Packages"
     fi
   fi
 }
 
 # Show the menu and execute selected option
 while true; do
-	CHOICE=$(whiptail --title "Hacman - Whiptail Menu For Pacman (HARBS)" --menu "Choose an option:" 15 60 6 "${OPTIONS[@]}" 3>&1 1>&2 2>&3)
+  CHOICE=$(whiptail --title "Pacman Package Manager" --menu "Choose an option:" 15 60 6 "${OPTIONS[@]}" 3>&1 1>&2 2>&3)
   case $CHOICE in
-    "1")
+    "1.")
       install_packages
       ;;
-    "2")
+    "2.")
       remove_packages
       ;;
-    "3")
+    "3.")
       update_packages
       ;;
-    "4")
+    "4.")
       check_updates
       ;;
-    "5")
+    "5.")
       search_packages
       ;;
     "~")
