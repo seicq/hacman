@@ -1,0 +1,21 @@
+#!/bin/sh
+
+Red='\033[1;31m'       
+Green='\033[1;32m'      
+Yellow='\033[1;33m'      
+Blue='\033[1;34m'        
+
+pkg_install(){
+	string="Hello, World!"
+	length=${#string}
+	for ((i=0; i<length; i++)); do
+   		 char=${string:i:1}
+    		echo "Character at position $i: $char"
+	done
+#pkg_remove()
+#pkg_search
+#pkg_list()
+#sys_update()
+#sys_update_check()
+
+printf "$Green Hacman, pacman heker for normies\n"
