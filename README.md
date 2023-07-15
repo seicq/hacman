@@ -1,2 +1,2 @@
-# hacman
-Whiptail menu type Pacman and AUR helper for newbies using HARBS.
+# pkgmgr-gui
+Whiptail menu type Pacman with AUR helper AND APT for newbies using HARBS.
