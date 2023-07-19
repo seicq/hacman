@@ -10,17 +10,17 @@ Well using it is really very easy.
 $ git clone https://github.com/singh-vikal/pkgmgr-gui.git
 $ cd pkgmgr-gui
 ```
-###### if u using dnf package manager i.e. Fedora and family 
+##### if u using dnf package manager i.e. Fedora and family 
 ```yaml
 $ sudo chmod +x dnfman.sh
 $ ./dnfman.sh
 ```
-###### if u using apt package manager i.e. Debian/Ubuntu and family
+##### if u using apt package manager i.e. Debian/Ubuntu and family
 ```yaml
 $ sudo chmod +x aptman.sh
 $ ./aptman.sh
 ```
-###### if you using Pacman package manager i.e. Arch and family
+##### if you using Pacman package manager i.e. Arch and family
 ```yaml
 $ sudo chmod +x hacman
 $ ./hacman
