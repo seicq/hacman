@@ -7,7 +7,7 @@ Well using it is really very easy.
 - Run the script and Do install/remove/update /upgrade/search what you want to....  ;)
 
 ```yaml
-$ git clone https://github.com/vikmenace/pkgmgr-gui.git
+$ git clone https://github.com/vikalsingh777/pkgmgr-gui.git
 $ cd pkgmgr-gui
 ```
 ##### if u using dnf package manager i.e. Fedora and family 
