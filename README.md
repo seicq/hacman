@@ -1,27 +1,16 @@
 # hacman
-Whiptail menu type Pacman and AUR helper for newbies using HARBS.
+Whiptail menu type Pacman and AUR helper for pacman.
 Well using it is really very easy.
 
-- Just clone the repo
-- Change/give Permissions
-- Run the script and Do install/remove/update /upgrade/search what you want to....  ;)
-
+- Clone the repo.
 ```yaml
-$ git clone https://github.com/singh-vikal/pkgmgr-gui.git
-$ cd pkgmgr-gui
+$ git clone https://github.com/seicq/hacman.git
 ```
-##### if u using dnf package manager i.e. Fedora and family 
+- Make the script executable.
 ```yaml
-$ sudo chmod +x dnfman.sh
-$ ./dnfman.sh
+$ sudo chmod +x hacman.sh
 ```
-##### if u using apt package manager i.e. Debian/Ubuntu and family
+- Run the script.
 ```yaml
-$ sudo chmod +x aptman.sh
-$ ./aptman.sh
-```
-##### if you using Pacman package manager i.e. Arch and family
-```yaml
-$ sudo chmod +x hacman
-$ ./hacman
+$ ./hacman.sh
 ```
