@@ -69,7 +69,7 @@ search_packages() {
 
 # Show the menu and execute selected option
 while true; do
-  CHOICE=$(whiptail --title "Pacman Package Manager" --menu "Choose an option:" 15 60 6 "${OPTIONS[@]}" 3>&1 1>&2 2>&3)
+  CHOICE=$(whiptail --title "APT Package Manager" --menu "Choose an option:" 15 60 6 "${OPTIONS[@]}" 3>&1 1>&2 2>&3)
   case $CHOICE in
     "1.")
       install_packages
@@ -94,4 +94,3 @@ while true; do
       ;;
   esac
 done
-
