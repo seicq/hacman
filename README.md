@@ -8,7 +8,7 @@ Well using it is really very easy.
 - Run the script and Do install/remove/update /upgrade/search what you want to....  ;)
 
 ```yaml
-$ git clone https://github.com/iampystar/pkgmgr-gui.git
+$ git clone https://github.com/ow1c/pkgmgr-gui.git
 $ cd pkgmgr-gui
 ```
 - Make the script executable.
