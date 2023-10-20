@@ -30,3 +30,8 @@ $ ./hacman.sh
 ```yaml
 $ ./aptman.sh
 ```
+<a href="https://github.com/ow1c/bowl/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ow1c/bowl" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
